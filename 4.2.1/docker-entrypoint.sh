@@ -74,6 +74,7 @@ _vhost_conf () {
 }
 
 echo "IncludeOptional /etc/httpd/davrods_conf.d/*.conf" >> /etc/httpd/conf/httpd.conf
+sed -i '/<VirtualHost _default_:443>/,/<\/VirtualHost>/d' /etc/httpd/conf.d/ssl.conf
 _irods_environment_json
 _vhost_conf
 
