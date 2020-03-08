@@ -1,19 +1,19 @@
 FROM krallin/centos-tini:centos7
 MAINTAINER Michael J. Stealey <michael.j.stealey@gmail.com>
 
+ARG DAVRODS_PACKAGE=https://github.com/UtrechtUniversity/davrods/releases/download/4.2.2_1.4.0/davrods-4.2.2_1.4.0-1.rpm
+
 RUN yum -y install \
     sudo \
     wget \
     epel-release \
     mod_ssl \
-    && wget https://github.com/UtrechtUniversity/davrods/releases/download/4.2.2_1.4.0/davrods-4.2.2_1.4.0-1.rpm \
     && rpm --import https://packages.irods.org/irods-signing-key.asc \
     && wget -qO - https://packages.irods.org/renci-irods.yum.repo | \
     tee /etc/yum.repos.d/renci-irods.yum.repo \
     && yum -y makecache fast \
     && yum -y install jq \
-    && yum -y localinstall davrods-4.2.2_1.4.0-1.rpm \
-    && rm -f davrods-4.2.2_1.4.0-1.rpm \
+    && yum -y install ${DAVRODS_PACKAGE} \
     && yum clean all
 
 # irods_environment.json
