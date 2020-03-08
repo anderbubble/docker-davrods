@@ -78,4 +78,4 @@ _irods_environment_json
 _vhost_conf
 
 # start the apache daemon
-exec /usr/sbin/apachectl -DFOREGROUND
+exec /usr/sbin/httpd -DFOREGROUND
