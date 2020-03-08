@@ -8,10 +8,10 @@ This work is based on [UtrechtUniversity/davrods](https://github.com/UtrechtUniv
 
 - Davrods leverages the Apache server implementation of the WebDAV protocol, mod\_dav, for compliance with the WebDAV Class 2 standard.
 
-## Supported tags and respective Dockerfile links
+## Supported tags
 
-- 4.2.2, latest ([4.2.2/Dockerfile](/4.2.2/Dockerfile))
-- 4.2.1 ([4.2.1/Dockerfile](/4.2.1/Dockerfile))
+- 4.2.2, latest
+- 4.2.1
 
 ### Pull image from dockerhub
 
@@ -22,8 +22,12 @@ $ docker pull renci/docker-davrods:4.2.2
 ### Build locally
 
 ```
-$ cd 4.2.2
 $ docker build -t docker-davrods:4.2.2 .
+```
+
+The container can also be built with a different upstream davrods package.
+```
+$ docker build -t docker-davrods:4.2.7 . --build-arg DAVRODS_PACKAGE=https://github.com/UtrechtUniversity/davrods/releases/download/4.2.7_1.4.2/davrods-4.2.7_1.4.2-1.rpm
 ```
 
 ## Contents
